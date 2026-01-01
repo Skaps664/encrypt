@@ -8,7 +8,6 @@ import { encryptText, decryptText } from '../lib/encryption'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Lock } from 'lucide-react'
-import { signOut } from 'next-auth/react'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -27,17 +26,6 @@ export default function Home() {
     }
     fetchDiaries()
   }, [session, status, router])
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const loginTime = localStorage.getItem('loginTime')
-      if (loginTime && Date.now() - parseInt(loginTime) < 2000) {
-        // Just logged in, don't sign out
-      } else {
-        signOut({ callbackUrl: '/auth/signin' })
-      }
-    }
-  }, [])
 
   async function fetchDiaries() {
     setLoading(true)
@@ -93,8 +81,8 @@ export default function Home() {
           )}
         </div>
 
-        {/* Footer */}
-        <div className="mt-12 text-center text-sm text-slate-500">
+        {/* Centered Footer */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-5xl text-slate-500">
           <p>Made by Sudais Khan</p>
         </div>
       </div>

@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import { decryptText, encryptText } from '../../../lib/encryption'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { signOut } from 'next-auth/react'
 
 export default function DiaryPage() {
   const { id } = useParams()
@@ -33,17 +32,6 @@ export default function DiaryPage() {
     }
     fetchDiary()
   }, [id, session, status, router])
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const loginTime = localStorage.getItem('loginTime')
-      if (loginTime && Date.now() - parseInt(loginTime) < 2000) {
-        // Just logged in, don't sign out
-      } else {
-        signOut({ callbackUrl: '/auth/signin' })
-      }
-    }
-  }, [])
 
   async function handleUnlock(e: React.FormEvent) {
     e.preventDefault()
@@ -74,7 +62,7 @@ export default function DiaryPage() {
   }
 
   return (
-    <div>
+    <div className="min-h-screen relative">
       <Header />
       <div className="max-w-3xl mx-auto">
         <div className="card p-6 rounded-md mb-4">
@@ -108,8 +96,8 @@ export default function DiaryPage() {
         )}
       </div>
 
-      {/* Footer */}
-      <div className="mt-8 text-center text-sm text-slate-500">
+      {/* Centered Footer */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-5xl text-slate-500">
         <p>Made by Sudais Khan</p>
       </div>
     </div>

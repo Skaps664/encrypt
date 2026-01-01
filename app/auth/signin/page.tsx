@@ -161,10 +161,14 @@ export default function SignInPage() {
             <div className="mt-6 text-center text-sm text-slate-400">
               <p>Don't have an account? <Link href="/auth/signup" className="text-cyan-400 hover:text-cyan-300">Sign up</Link></p>
               <p className="mt-2">© 2025 Encrypted Diary | AES Protected</p>
-              <p className="mt-1 text-xs">Made by Sudais Khan</p>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Centered Footer */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-5xl text-slate-500">
+        <p>Made by Sudais Khan</p>
       </div>
 
       <style>{`
