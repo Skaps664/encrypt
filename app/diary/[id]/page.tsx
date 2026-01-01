@@ -97,7 +97,7 @@ export default function DiaryPage() {
       </div>
 
       {/* Centered Footer */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-5xl text-slate-500">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-5xl text-slate-500">
         <p>Made by Sudais Khan</p>
       </div>
     </div>
