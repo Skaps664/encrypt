@@ -46,7 +46,8 @@ const config: runtime.GetPrismaClientConfig = {
   "datasourceNames": [
     "db"
   ],
-  "activeProvider": "sqlite",
+  "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -55,8 +56,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../lib/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String  @id @default(cuid())\n  email        String  @unique\n  passwordHash String\n  diaries      Diary[]\n}\n\nmodel Diary {\n  id           String   @id @default(cuid())\n  userId       String\n  title        String\n  passwordHash String\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n  user         User     @relation(fields: [userId], references: [id])\n  entries      Entry[]\n}\n\nmodel Entry {\n  id        String   @id @default(cuid())\n  diaryId   String\n  content   String\n  iv        String\n  salt      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  diary     Diary    @relation(fields: [diaryId], references: [id])\n}\n",
-  "inlineSchemaHash": "6be4e83d3306381ea3b83a54eaae526aa7712a1e8e9152f4c8eff9bd50c49a97",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../lib/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String  @id @default(cuid())\n  email        String  @unique\n  passwordHash String\n  diaries      Diary[]\n}\n\nmodel Diary {\n  id           String   @id @default(cuid())\n  userId       String\n  title        String\n  passwordHash String\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n  user         User     @relation(fields: [userId], references: [id])\n  entries      Entry[]\n}\n\nmodel Entry {\n  id        String   @id @default(cuid())\n  diaryId   String\n  content   String\n  iv        String\n  salt      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  diary     Diary    @relation(fields: [diaryId], references: [id])\n}\n",
+  "inlineSchemaHash": "6c4c21208abfc51e76dc98b81199aadca90bf334393d7da34e2b8c059a3640ab",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},

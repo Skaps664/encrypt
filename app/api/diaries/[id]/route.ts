@@ -4,7 +4,7 @@ import authOptions from '../../../../lib/auth'
 import { getDiary } from '../../../../lib/db'
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions) as any
   if (!session || !session.user) return NextResponse.json({ ok: false }, { status: 401 })
   const id = params.id
   const d = await getDiary(session.user.id as string, id)

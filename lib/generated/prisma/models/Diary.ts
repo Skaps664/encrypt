@@ -436,6 +436,7 @@ export type DiaryCreateOrConnectWithoutUserInput = {
 
 export type DiaryCreateManyUserInputEnvelope = {
   data: Prisma.DiaryCreateManyUserInput | Prisma.DiaryCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type DiaryUpsertWithWhereUniqueWithoutUserInput = {
@@ -1310,6 +1311,7 @@ export type DiaryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * The data used to create many Diaries.
    */
   data: Prisma.DiaryCreateManyInput | Prisma.DiaryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1328,6 +1330,7 @@ export type DiaryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many Diaries.
    */
   data: Prisma.DiaryCreateManyInput | Prisma.DiaryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

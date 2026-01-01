@@ -75,31 +75,6 @@ export default function Home() {
           </div>
         </div>
 
-        {!unlocked && (
-          <div className="card p-8 rounded-3xl max-w-2xl mb-8 shadow-2xl border border-slate-700/50">
-            <div className="text-center mb-6">
-              <Lock className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Unlock Your Diaries</h3>
-              <p className="text-slate-400">Enter your passphrase to decrypt and access your encrypted entries. Your key is derived client-side for maximum security.</p>
-            </div>
-            <form onSubmit={handleUnlock} className="flex gap-4 items-center">
-              <div className="flex-1 relative">
-                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type="password"
-                  placeholder="Enter your encryption passphrase"
-                  value={passphrase}
-                  onChange={e => setPassphrase(e.target.value)}
-                  className="w-full bg-slate-700/50 border border-slate-600 rounded-xl py-4 pl-12 pr-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
-                />
-              </div>
-              <button type="submit" className="btn-neon px-6 py-4 rounded-xl font-semibold whitespace-nowrap">
-                Unlock
-              </button>
-            </form>
-          </div>
-        )}
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {loading && (
             <div className="col-span-full text-center py-12">

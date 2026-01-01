@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import bcrypt from 'bcryptjs'
 
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions) as any
   if (!session || !session.user) return NextResponse.json({ ok: false }, { status: 401 })
   const userId = session.user.id as string
   const diaries = await getDiariesForUser(userId)
@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions) as any
   if (!session || !session.user) return NextResponse.json({ ok: false }, { status: 401 })
   const body = await req.json()
   const { title, password } = body
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions) as any
   if (!session || !session.user) return NextResponse.json({ ok: false }, { status: 401 })
   const body = await req.json()
   const { id, title } = body

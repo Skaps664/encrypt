@@ -428,6 +428,7 @@ export type EntryCreateOrConnectWithoutDiaryInput = {
 
 export type EntryCreateManyDiaryInputEnvelope = {
   data: Prisma.EntryCreateManyDiaryInput | Prisma.EntryCreateManyDiaryInput[]
+  skipDuplicates?: boolean
 }
 
 export type EntryUpsertWithWhereUniqueWithoutDiaryInput = {
@@ -1224,6 +1225,7 @@ export type EntryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * The data used to create many Entries.
    */
   data: Prisma.EntryCreateManyInput | Prisma.EntryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1242,6 +1244,7 @@ export type EntryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many Entries.
    */
   data: Prisma.EntryCreateManyInput | Prisma.EntryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

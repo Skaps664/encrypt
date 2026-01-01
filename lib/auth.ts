@@ -1,9 +1,9 @@
 import Credentials from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 import { findUserByEmail } from './db'
-import type { NextAuthConfig } from 'next-auth'
+import type { NextAuthOptions } from 'next-auth'
 
-export const authOptions: NextAuthConfig = {
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
