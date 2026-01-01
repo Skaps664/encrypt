@@ -1,0 +1,30 @@
+{
+  "name": "encrypted-diary-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "2.0.18",
+    "bcryptjs": "2.4.3",
+    "framer-motion": "10.12.7",
+    "lucide-react": "0.262.0",
+    "next": "^14.2.0",
+    "next-auth": "^4.24.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "uuid": "9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.3.2",
+    "@types/react": "18.2.27",
+    "autoprefixer": "10.4.14",
+    "postcss": "8.4.26",
+    "tailwindcss": "3.4.7",
+    "typescript": "5.3.3"
+  }
+}
